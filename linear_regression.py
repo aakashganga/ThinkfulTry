@@ -86,13 +86,15 @@ x = np.column_stack([x1,x2])
 
 # Now we create a linear model:
 
-X = sm.add_constant(x) # this add
+X = sm.add_constant(x) # this add a constant intercept of 1.0
 model = sm.OLS(y,X)
 f = model.fit()
 
+# to get summary of the model
+f.summary()
 # And output the results:
 
 print 'Coefficients: ', f.params[0:2]
-print 'Intercept: ', f.params[2]
+print 'Intercept: ', f.params[0]
 print 'P-Values: ', f.pvalues
 print 'R-Squared: ', f.rsquared
