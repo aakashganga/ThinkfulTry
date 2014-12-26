@@ -29,8 +29,8 @@ freq_open_acc = collections.Counter(loansData_Selected['open_acc'])
 freq_int_rate = collections.Counter(loansData_Selected['int_rate'])
 freq_home_ownership = collections.Counter(loansData_Selected['home_ownership'])
 
-loansData_Selected['int_rate'][0:5] # first 5 rows of Interest.Rate
-loansData_Selected['open_acc'][0:5] # first 5 rows of open accounts
+var = loansData_Selected['int_rate'][0:5]  # first 5 rows of Interest.Rate
+var = loansData_Selected['open_acc'][0:5]  # first 5 rows of open accounts
 loansData_Selected['home_ownership'][0:5] # first 5 rows of home ownership
 
 #cleaning up the columns
@@ -81,6 +81,7 @@ print 'R-Squared: ', f.rsquared
 
 # now add home ownership to the model
 
+assert isinstance(loansData_Selected, object)
 model2 = ols('int_rate ~ open_acc + C(home_ownership) ', loansData_Selected)
 f2 = model2.fit()
 
